@@ -1,0 +1,21 @@
+name: mvp_anatel_dbt_duckdb
+version: "2.0.0"
+config-version: 2
+
+profile: mvp_anatel_dbt_duckdb
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+analysis-paths: ["analyses"]
+snapshot-paths: ["snapshots"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  mvp_anatel_dbt_duckdb:
+    +materialized: view
+    staging:
+      +materialized: view
+    marts:
+      +materialized: view

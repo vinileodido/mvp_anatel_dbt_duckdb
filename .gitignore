@@ -1,0 +1,23 @@
+target/
+dbt_packages/
+logs/
+data/
+*.duckdb*
+profiles.yml
+.user.yml
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage*
+htmlcov/
+.ipynb_checkpoints/
+.venv/
+
+# Environment / OS
+.env
+.env.*
+.DS_Store

@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: ibge_municipios
+        description: Raw IBGE municipal table collected from DTB_2023.
+      - name: areas_locais
+        description: Raw Anatel local area codes.
+      - name: estacoes_smp
+        description: Raw SMP stations extracted from the official Anatel ZIP.
+      - name: indicadores_rqual
+        description: Raw RQUAL indicators extracted from the official Anatel ZIP.

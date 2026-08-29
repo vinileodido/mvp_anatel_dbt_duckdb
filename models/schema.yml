@@ -1,0 +1,96 @@
+version: 2
+
+models:
+  - name: stg_ibge_municipios
+    description: Dimensão municipal normalizada a partir do recorte IBGE.
+    columns:
+      - name: cod_ibge
+        tests:
+          - not_null
+          - unique
+      - name: municipio
+        tests:
+          - not_null
+      - name: cod_uf
+        tests:
+          - not_null
+      - name: uf
+        tests:
+          - not_null
+
+  - name: stg_areas_locais
+    description: Código de área local por município.
+    columns:
+      - name: cod_ibge
+        tests:
+          - not_null
+          - unique
+      - name: cn
+        tests:
+          - not_null
+
+  - name: stg_estacoes_smp
+    description: Base de estações SMP preparada para agregações analíticas.
+    columns:
+      - name: prestadora
+        tests:
+          - not_null
+      - name: numero_estacao
+        tests:
+          - not_null
+
+  - name: stg_indicadores_rqual
+    description: Indicadores RQUAL em formato analítico largo.
+    columns:
+      - name: mesdatper
+        tests:
+          - not_null
+      - name: prestadora
+        tests:
+          - not_null
+      - name: codigo_ibge
+        tests:
+          - not_null
+
+  - name: vw_erbs_br
+    description: Visão nacional de ERBs por prestadora e tecnologia.
+    columns:
+      - name: prestadora
+        tests:
+          - not_null
+
+  - name: vw_erbs_uf
+    description: Visão de ERBs por UF.
+    columns:
+      - name: uf
+        tests:
+          - not_null
+      - name: prestadora
+        tests:
+          - not_null
+
+  - name: vw_erbs_cid
+    description: Visão de ERBs por município.
+    columns:
+      - name: cidade
+        tests:
+          - not_null
+      - name: capital
+        tests:
+          - not_null
+      - name: prestadora
+        tests:
+          - not_null
+
+  - name: vw_indicadores
+    description: Visão final de indicadores RQUAL enriquecida com as dimensões geográficas.
+    columns:
+      - name: mesdatper
+        tests:
+          - not_null
+      - name: cn
+        tests:
+          - not_null
+      - name: cidade
+        tests:
+          - not_null
