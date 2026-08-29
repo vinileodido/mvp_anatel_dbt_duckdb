@@ -94,3 +94,8 @@ models:
       - name: cidade
         tests:
           - not_null
+    tests:
+      - latest_period_matches_source:
+          arguments:
+            source_model: stg_indicadores_rqual
+            column_name: mesdatper

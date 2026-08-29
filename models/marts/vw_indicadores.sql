@@ -1,5 +1,10 @@
 {{ config(materialized='table') }}
 
+with max_periodo as (
+    select max(mesdatper) as max_mesdatper
+    from {{ ref('stg_indicadores_rqual') }}
+)
+
 select
     i.mesdatper,
     i.ano,
@@ -27,5 +32,7 @@ join {{ ref('stg_ibge_municipios') }} ib
   on i.codigo_ibge = ib.cod_ibge
 left join {{ ref('stg_areas_locais') }} al
   on i.codigo_ibge = al.cod_ibge
+cross join max_periodo p
 where i.mesdatper >= 202407
+  and i.mesdatper <= p.max_mesdatper
 order by i.mesdatper, ib.uf, ib.cod_ibge, i.prestadora

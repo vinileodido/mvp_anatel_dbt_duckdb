@@ -168,7 +168,8 @@ Replica a agregação por município e o flag de capital.
 
 ### `vw_indicadores`
 
-Replica a visão final dos indicadores, com filtro a partir de `202407`.
+Replica a visão final dos indicadores, cobrindo de `202407` até a última competência disponível no arquivo de dados (`202607`, julho de 2026).
+
 
 ## Evidências esperadas
 

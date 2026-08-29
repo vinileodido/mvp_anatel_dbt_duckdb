@@ -120,8 +120,7 @@ O script de coleta carrega as tabelas brutas no schema `raw` do DuckDB:
 
 - `vw_erbs_br`: agregação nacional por prestadora e tecnologia
 - `vw_erbs_uf`: agregação por UF
-- `vw_erbs_cid`: agregação por município, com flag de capital
-- `vw_indicadores`: visão final de indicadores RQUAL enriquecida com a dimensão geográfica
+- `vw_indicadores`: visão final de indicadores RQUAL, cobrindo de `202407` até a última competência disponível no arquivo de dados (`202607`, julho de 2026)
 
 ## Requisitos
 
